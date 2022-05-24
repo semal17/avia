@@ -30,6 +30,7 @@ function Ticket({ tickets }) {
               <span className="ticket-item__time-date">18 авг. вт</span> 20:40
             </p>
           </div>
+          <button className="ticket-btn"></button>
 
           <span className="ticket-item__legs">1 пересадка</span>
         <p className="ticket-item__aviacompany">Рейс выполняет: Аэрофлот</p>
