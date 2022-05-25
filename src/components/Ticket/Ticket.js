@@ -1,7 +1,7 @@
 import "./Ticket.css";
 
 function Ticket({ tickets }) {
-  console.log(tickets);
+  console.log(tickets[0]);
   let items = tickets.map((item, index) => (
     <li className="ticket" key={index}>
       <div className="ticket-top">
@@ -17,7 +17,7 @@ function Ticket({ tickets }) {
           <div className="ticket-item__city">
             <p className="ticket-item__city-name">
               Москва<span className="ticket-item__city-airport">(SVO)</span> -
-              Лондон<span>(LHR)</span>
+              Лондон<span className="ticket-item__city-airport">(LHR)</span>
             </p>
           </div>
 
@@ -30,11 +30,10 @@ function Ticket({ tickets }) {
               <span className="ticket-item__time-date">18 авг. вт</span> 20:40
             </p>
           </div>
-          <button className="ticket-btn"></button>
-
           <span className="ticket-item__legs">1 пересадка</span>
-        <p className="ticket-item__aviacompany">Рейс выполняет: Аэрофлот</p>
+          <p className="ticket-item__aviacompany">Рейс выполняет: Аэрофлот</p>
         </li>
+        <button className="ticket-btn">Выбрать</button>
       </ul>
     </li>
   ));

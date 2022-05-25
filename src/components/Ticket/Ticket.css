@@ -1,0 +1,65 @@
+.ticket {
+    width: 100%;
+    margin-top: 25px;
+}
+
+.ticket-top {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(51, 136, 246);
+    align-items: center;
+    color: white;
+    padding: 5px;
+}
+
+.ticket-top__wrapper {
+    text-align: right;
+}
+
+.ticket-top__price {
+font-size: 20px;
+}
+
+.ticket-top__for {
+font-size: 8px;
+}
+
+.ticket-item {
+    padding: 5px 10px;
+}
+
+.ticket-item__city-airport {
+    color: rgb(51, 136, 246);
+}
+
+.ticket-item__time {
+    display: flex;
+    justify-content: space-between;
+}
+
+.ticket-item__time-date {
+    color: rgb(51, 136, 246);
+    font-size: 12px;
+}
+
+.ticket-item__legs {
+    display: block;
+    width: 150px;
+    margin: 5px auto;
+    font-size: 12px;
+    color: orangered;
+    text-align: center;
+}
+
+.ticket-item__aviacompany {
+    font-size: 12px;
+}
+
+.ticket-btn {
+    width: 100%;
+    font-size: 18px;
+    color: white;
+    background-color: orangered;
+    padding: 5px 0;
+    text-transform: uppercase;
+}
