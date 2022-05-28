@@ -1,0 +1,8 @@
+.sort-form__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.sort-form__label {
+    font-size: 10px;
+}
