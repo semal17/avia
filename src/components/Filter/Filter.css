@@ -1,0 +1,12 @@
+.filter-form__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-form__label {
+    font-size: 10px;
+}
+
+.filter-form__name {
+    margin: 15px 0;
+}

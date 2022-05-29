@@ -6,3 +6,7 @@
 .sort-form__label {
     font-size: 10px;
 }
+
+.sort-form__name {
+    margin: 15px 0;
+}

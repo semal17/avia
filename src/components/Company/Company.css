@@ -1,0 +1,12 @@
+.company-form__wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.company-form__label {
+    font-size: 10px;
+}
+
+.company-form__name {
+    margin: 15px 0;
+}

@@ -1,0 +1,18 @@
+.price {
+    display: flex;
+    flex-direction: column;
+}
+
+.price__label {
+    font-size: 10px;
+    padding-right: 7px;
+}
+
+.price__input {
+    margin-left: 7px;
+    border: 2px solid black;
+}
+
+.price__text {
+    margin: 15px 0;
+}

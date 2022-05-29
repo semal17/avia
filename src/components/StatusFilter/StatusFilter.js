@@ -5,10 +5,8 @@ import Price from "../Price/Price";
 import Company from "../Company/Company";
 
 function StatusFilter() {
-  
   return (
     <section className="status">
-      StatusFilter
       <Sort />
       <Filter />
       <Price />
