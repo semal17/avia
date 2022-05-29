@@ -1,11 +1,14 @@
 import "./Sort.css";
 
 function Sort() {
+  let formChange = (e) => {
+    console.log(e.target.closest('label').htmlFor);
+  }
   return (
     <div className="sort">
       <form className="sort-form">
         <p className="sort-form__name">Сортировать</p>
-        <div className="sort-form__wrapper">
+        <div className="sort-form__wrapper" onClick={formChange}>
           <label className="sort-form__label" for="priceUp">
             <input
               className="sort-form__input"
