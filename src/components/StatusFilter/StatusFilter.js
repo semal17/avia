@@ -4,10 +4,10 @@ import Filter from "../Filter/Filter";
 import Price from "../Price/Price";
 import Company from "../Company/Company";
 
-function StatusFilter() {
+function StatusFilter({sort, setSort}) {
   return (
     <section className="status">
-      <Sort />
+      <Sort sort={sort} setSort={setSort} />
       <Filter />
       <Price />
       <Company />

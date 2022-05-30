@@ -1,8 +1,8 @@
 import "./Sort.css";
 
-function Sort() {
+function Sort({sort, setSort}) {
   let formChange = (e) => {
-    console.log(e.target.closest('label').htmlFor);
+    setSort(e.target.closest('label').htmlFor);
   }
   return (
     <div className="sort">
