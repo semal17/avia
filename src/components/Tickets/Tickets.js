@@ -1,9 +1,12 @@
+import { useEffect} from 'react';
+
 import "./Tickets.css";
 import Ticket from "../Ticket/Ticket";
 import Button from "../Button/Button";
 
-function Tickets({data}) {
-  let tickets = data.slice(0,3);
+function Tickets({tickets}) {
+
+  
   return (
     <section className="tickets">
       <ul>

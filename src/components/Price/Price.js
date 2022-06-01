@@ -4,7 +4,7 @@ function Price() {
   return (
     <div className="price">
       <p className="price__text">Цена</p>
-      <label className="price__label" for="from">
+      <label className="price__label" htmlFor="from">
         От
         <input
           className="price__input"
@@ -15,7 +15,7 @@ function Price() {
         ></input>
       </label>
 
-      <label className="price__label" for="to">
+      <label className="price__label" htmlFor="to">
         До
         <input
           className="price__input"

@@ -5,7 +5,7 @@ function Company() {
   <form className="company-form">
     <p className="company-form__name">Авиакомпании</p>
     <div className="company-form__wrapper">
-      <label className="company-form__label" for="lot">
+      <label className="company-form__label" htmlFor="lot">
         <input
           className="company-form__input"
           type="checkbox"
@@ -15,7 +15,7 @@ function Company() {
         />
         - Lot Polish Airlines от 21049 р.
       </label>
-      <label className="company-form__label" for="aer">
+      <label className="company-form__label" htmlFor="aer">
         <input
           className="company-form__input"
           type="checkbox"

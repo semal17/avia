@@ -1,15 +1,16 @@
 import "./Sort.css";
 
-function Sort({sort, setSort}) {
+function Sort({ sort, setSort }) {
   let formChange = (e) => {
-    setSort(e.target.closest('label').htmlFor);
-  }
+    setSort(e.target.closest("label").htmlFor);
+  };
+
   return (
     <div className="sort">
       <form className="sort-form">
         <p className="sort-form__name">Сортировать</p>
         <div className="sort-form__wrapper" onClick={formChange}>
-          <label className="sort-form__label" for="priceUp">
+          <label className="sort-form__label" htmlFor="priceUp">
             <input
               className="sort-form__input"
               type="radio"
@@ -19,7 +20,7 @@ function Sort({sort, setSort}) {
             />
             - по возрастанию цены
           </label>
-          <label className="sort-form__label" for="priceDown">
+          <label className="sort-form__label" htmlFor="priceDown">
             <input
               className="sort-form__input"
               type="radio"
@@ -29,7 +30,7 @@ function Sort({sort, setSort}) {
             />
             - по убыванию цены
           </label>
-          <label className="sort-form__label" for="time">
+          <label className="sort-form__label" htmlFor="time">
             <input
               className="sort-form__input"
               type="radio"

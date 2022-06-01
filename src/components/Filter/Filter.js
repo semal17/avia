@@ -5,7 +5,7 @@ function Filter() {
   <form className="filter-form">
     <p className="filter-form__name">Фильтровать</p>
     <div className="filter-form__wrapper">
-      <label className="filter-form__label" for="single">
+      <label className="filter-form__label" htmlFor="single">
         <input
           className="filter-form__input"
           type="checkbox"
@@ -15,7 +15,7 @@ function Filter() {
         />
         - 1 пересадка
       </label>
-      <label className="filter-form__label" for="without">
+      <label className="filter-form__label" htmlFor="without">
         <input
           className="filter-form__input"
           type="checkbox"
