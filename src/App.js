@@ -6,23 +6,23 @@ import StatusFilter from "./components/StatusFilter/StatusFilter";
 import Tickets from "./components/Tickets/Tickets";
 
 function App() {
-  const [sort, setSort] = useState('');
+  const [sort, setSort] = useState('time');
   const [tickets, setTickets] = useState(DATA[0].result.flights);
   
   useEffect(() => {
-    if(sort === 'priceUp') {
-      setTickets(DATA[0].result.flights.sort((a,b) => Number(a.flight.price.total.amount) - Number(b.flight.price.total.amount)));
-    } else if (sort === 'priceDown') {
-      setTickets(DATA[0].result.flights.sort((a,b) => Number(b.flight.price.total.amount) - Number(a.flight.price.total.amount)));
-    } else if (sort === 'time') {
-      setTickets(DATA[0].result.flights.sort((a,b) => Number(a.flight.legs[0].duration + a.flight.legs[1].duration) - Number(b.flight.legs[0].duration + b.flight.legs[1].duration)));
-    } else {
-      setTickets(DATA[0].result.flights);
+    let temp = [...tickets];
+    if(sort === 'priceUp') {      
+      setTickets(temp.sort((a,b) => Number(a.flight.price.total.amount) - Number(b.flight.price.total.amount)));
+    } else if (sort === 'priceDown') {     
+      setTickets(temp.sort((a,b) => Number(b.flight.price.total.amount) - Number(a.flight.price.total.amount)));
+    } else if (sort === 'time') {      
+      setTickets(temp.sort((a,b) => Number(a.flight.legs[0].duration + a.flight.legs[1].duration) - Number(b.flight.legs[0].duration + b.flight.legs[1].duration)));
+    } else {      
+      setTickets(temp);
     }
     console.log(sort);
-  }, [sort]);
+  }, [sort]); 
 
-  console.log(sort);
   
   return (
     <main className="app container">

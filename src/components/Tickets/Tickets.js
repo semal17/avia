@@ -5,11 +5,10 @@ import Ticket from "../Ticket/Ticket";
 import Button from "../Button/Button";
 
 function Tickets({tickets}) {
-
   
   return (
     <section className="tickets">
-      <ul>
+      <ul>      
         <Ticket tickets={tickets} />
       </ul>
       <Button />
