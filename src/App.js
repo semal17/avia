@@ -6,7 +6,10 @@ import StatusFilter from "./components/StatusFilter/StatusFilter";
 import Tickets from "./components/Tickets/Tickets";
 
 function App() {
-  const [sort, setSort] = useState('time');
+  const [sort, setSort] = useState('');
+  const [filter, setFilter] = useState(0);
+  const [priceFrom, setPriceFrom] = useState(0);
+  const [priceTo, setPriceTo] = useState(1000000);
   const [tickets, setTickets] = useState(DATA[0].result.flights);
   
   useEffect(() => {
@@ -20,13 +23,35 @@ function App() {
     } else {      
       setTickets(temp);
     }
-    console.log(sort);
-  }, [sort]); 
 
+// console.log(tickets[0].flight.price.total.amount >= priceFrom);
+// console.log(priceTo);
+// console.log(tickets[0].flight.price.total.amount);
+// console.log(Number(tickets[0].flight.price.total.amount) <= priceTo);
+    setTickets(temp.filter(item => Number(item.flight.price.total.amount) >= priceFrom && Number(item.flight.price.total.amount) <= priceTo));
+    
+  }, [sort, priceFrom, priceTo]); 
+
+
+  // useEffect(() => {
+  //   let temp = [...tickets];  
+  //   if(filter === 1) {      
+  //     setTickets(temp.filter(item => item.flight.legs[0].segments.length + item.flight.legs[1].segments.length === 4));
+  //     // console.log(tickets[0].flight.legs[0].segments.length + tickets[0].flight.legs[1].segments.length);
+      
+  //   } else if (filter === 2) {     
+  //     setTickets(temp.filter(item => item.flight.legs[0].segments.length + item.flight.legs[1].segments.length === 3 || 2));
+      
+  //   }  else {      
+  //     setTickets(temp);     
+  //   }
+    
+  // }, [filter]); 
+  // console.log(typeof(priceFrom));
   
   return (
     <main className="app container">
-      <StatusFilter sort={sort} setSort={setSort}  />
+      <StatusFilter sort={sort} setSort={setSort} filter={filter} setFilter={setFilter} priceFrom={priceFrom} setPriceFrom = {setPriceFrom} priceTo={priceTo} setPriceTo={setPriceTo} />
       <Tickets tickets={tickets} />
     </main>
   );
