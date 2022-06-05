@@ -49,24 +49,23 @@ function App() {
       );
     }
 
-
-    // if (filter === 1) {
-    //   arr = arr.filter(
-    //     (item) =>
-    //       item.flight.legs[0].segments.length +
-    //         item.flight.legs[1].segments.length ===
-    //       4
-    //   );     
-    // } else if (filter === 2) {
-    //   arr = arr.filter(
-    //     (item) =>
-    //       item.flight.legs[0].segments.length +
-    //         item.flight.legs[1].segments.length ===
-    //         3 || 2
-    //   );
-    // } else {
-    //   arr = temp;
-    // }
+    if (filter === 1) {
+      arr = arr.filter(
+        (item) =>
+          item.flight.legs[0].segments.length +
+            item.flight.legs[1].segments.length ===
+          4
+      );
+    } else if (filter === 2) {
+      arr = arr.filter(
+        (item) =>
+          item.flight.legs[0].segments.length +
+            item.flight.legs[1].segments.length ===
+            3 || 2
+      );
+    } else {
+      arr = temp;
+    }
 
     arr = arr.filter(
       (item) =>
@@ -75,7 +74,7 @@ function App() {
     );
 
 
-   
+    
     setTickets(arr);
   }, [sort, company, priceFrom, priceTo, filter]);
 

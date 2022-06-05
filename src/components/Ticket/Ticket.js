@@ -19,7 +19,7 @@ function Ticket({ tickets }) {
   ];
   const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
 
-  // console.log(tickets[0].flight.carrier.uid);
+  console.log(tickets[0]);
 
   let items = tickets.slice(0, 5).map((item) => (
       <li className="ticket" key={item.flightToken}>
