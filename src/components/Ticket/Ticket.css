@@ -21,11 +21,16 @@ font-size: 20px;
 }
 
 .ticket-top__for {
-font-size: 8px;
+font-size: 12px;
 }
 
 .ticket-item {
     padding: 5px 10px;
+}
+
+
+.ticket-item__city {
+padding-bottom: 10px;
 }
 
 .ticket-item__city-airport {
@@ -57,9 +62,18 @@ font-size: 8px;
 
 .ticket-btn {
     width: 100%;
-    font-size: 18px;
+    font-size: 16px;
     color: white;
     background-color: orangered;
     padding: 5px 0;
     text-transform: uppercase;
+    cursor: pointer;
+}
+
+.ticket-btn:hover {
+    opacity: 0.8;
+}
+.ticket-btn:active {
+    opacity: 1;
+    color: black;
 }

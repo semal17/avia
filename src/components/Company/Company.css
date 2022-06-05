@@ -5,8 +5,10 @@
 
 .company-form__label {
     font-size: 10px;
+    display: flex;
+    align-items: center;
 }
 
 .company-form__name {
-    margin: 15px 0;
+    margin: 10px 0;
 }

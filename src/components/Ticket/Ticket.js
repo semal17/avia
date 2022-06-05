@@ -18,10 +18,11 @@ function Ticket({ tickets }) {
     "дек",
   ];
   const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
+  let num = 3;
 
   console.log(tickets[0]);
 
-  let items = tickets.slice(0, 5).map((item) => (
+  let items = tickets.slice(0, num).map((item) => (
       <li className="ticket" key={item.flightToken}>
         <div className="ticket-top">
           <p className="ticket-top__name">{item.flight.carrier.caption}</p>
@@ -106,7 +107,7 @@ function Ticket({ tickets }) {
             </li>
           ))}
 
-          <button className="ticket-btn">Выбрать</button>
+          <button className="ticket-btn" type="button">Выбрать</button>
         </ul>
       </li>
     ));
