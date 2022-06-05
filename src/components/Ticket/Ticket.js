@@ -20,7 +20,7 @@ function Ticket({ tickets }) {
   const days = ["вс", "пн", "вт", "ср", "чт", "пт", "сб"];
   let num = 3;
 
-  console.log(tickets[0]);
+  // console.log(tickets[0]);
 
   let items = tickets.slice(0, num).map((item) => (
       <li className="ticket" key={item.flightToken}>
@@ -43,8 +43,8 @@ function Ticket({ tickets }) {
                   {items.segments[0].departureAirport.caption}
                   <span className="ticket-item__city-airport">
                     ({items.segments[0].departureAirport.uid})
-                  </span>{" "}
-                  -
+                  </span>{" --> "}
+                   
                   {items.segments.length === 2
                     ? items.segments[1].arrivalCity.caption
                     : items.segments[0].arrivalCity.caption}
