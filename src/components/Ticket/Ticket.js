@@ -43,7 +43,7 @@ function Ticket({ tickets }) {
                   {items.segments[0].departureAirport.caption}
                   <span className="ticket-item__city-airport">
                     ({items.segments[0].departureAirport.uid})
-                  </span>{" --> "}
+                  </span>{" ---> "}
                    
                   {items.segments.length === 2
                     ? items.segments[1].arrivalCity.caption

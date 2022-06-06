@@ -1,26 +1,21 @@
 import "./Price.css";
 
-function Price({priceFrom, setPriceFrom, priceTo, setPriceTo}) {
-
+function Price({ priceFrom, setPriceFrom, priceTo, setPriceTo }) {
   let inputChangeFrom = (e) => {
-    if(e.target.value === "") {
+    if (e.target.value === "") {
       setPriceFrom(0);
     } else {
       setPriceFrom(Number(e.target.value));
     }
-
-
-  }
+  };
 
   let inputChangeTo = (e) => {
-    if(e.target.value === "") { 
-      setPriceTo(1000000);      
+    if (e.target.value === "") {
+      setPriceTo(1000000);
     } else {
       setPriceTo(Number(e.target.value));
     }
-    
-  }
-
+  };
 
   return (
     <div className="price">

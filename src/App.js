@@ -73,8 +73,6 @@ function App() {
         Number(item.flight.price.total.amount) <= priceTo
     );
 
-
-    
     setTickets(arr);
   }, [sort, company, priceFrom, priceTo, filter]);
 
