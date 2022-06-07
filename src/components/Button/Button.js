@@ -1,7 +1,16 @@
+import { useContext } from "react";
+
+import { MyContext } from "../../App";
+
 import "./Button.css";
 
 function Button() {
-  return <div className="button" type="button">Показать ещё</div>;
+  const { count, setCount } = useContext(MyContext);
+  return (
+    <div className="button" type="button" onClick={() => setCount(count + 2)}>
+      Показать ещё
+    </div>
+  );
 }
 
 export default Button;

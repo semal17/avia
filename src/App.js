@@ -1,12 +1,15 @@
 import { DATA } from "./flights.js";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 import StatusFilter from "./components/StatusFilter/StatusFilter";
 import Tickets from "./components/Tickets/Tickets";
 
+export const MyContext = React.createContext();
+
 function App() {
   const [sort, setSort] = useState("");
+  const [count, setCount] = useState(2);
   const [filter, setFilter] = useState(0);
   const [company, setCompany] = useState(0);
   const [priceFrom, setPriceFrom] = useState(0);
@@ -37,6 +40,7 @@ function App() {
     } else {
       arr = temp;
     }
+    
 
     if (company === 1) {
       arr = temp.filter((item) => item.flight.carrier.uid === "LO");
@@ -49,23 +53,23 @@ function App() {
       );
     }
 
-    // if (filter === 1) {
-    //   arr = arr.filter(
-    //     (item) =>
-    //       item.flight.legs[0].segments.length +
-    //         item.flight.legs[1].segments.length ===
-    //       4
-    //   );
-    // } else if (filter === 2) {
-    //   arr = arr.filter(
-    //     (item) =>
-    //       item.flight.legs[0].segments.length +
-    //         item.flight.legs[1].segments.length ===
-    //         3 || 2
-    //   );
-    // } else {
-    //   arr = temp;
-    // }
+    if (filter === 1) {
+      arr = arr.filter(
+        (item) =>
+          item.flight.legs[0].segments.length +
+            item.flight.legs[1].segments.length ===
+          4
+      );
+    } else if (filter === 2) {
+      arr = arr.filter(
+        (item) =>
+          item.flight.legs[0].segments.length +
+            item.flight.legs[1].segments.length ===
+            3 || 2
+      );
+    } else {
+      arr = temp;
+    }
 
     arr = arr.filter(
       (item) =>
@@ -77,21 +81,23 @@ function App() {
   }, [sort, company, priceFrom, priceTo, filter]);
 
   return (
-    <main className="app container">
-      <StatusFilter
-        sort={sort}
-        setSort={setSort}
-        filter={filter}
-        setFilter={setFilter}
-        priceFrom={priceFrom}
-        setPriceFrom={setPriceFrom}
-        priceTo={priceTo}
-        setPriceTo={setPriceTo}
-        company={company}
-        setCompany={setCompany}
-      />
-      <Tickets tickets={tickets} />
-    </main>
+    <MyContext.Provider value={{ count, setCount }}>
+      <main className="app container">
+        <StatusFilter
+          sort={sort}
+          setSort={setSort}
+          filter={filter}
+          setFilter={setFilter}
+          priceFrom={priceFrom}
+          setPriceFrom={setPriceFrom}
+          priceTo={priceTo}
+          setPriceTo={setPriceTo}
+          company={company}
+          setCompany={setCompany}
+        />
+        <Tickets tickets={tickets} />
+      </main>
+    </MyContext.Provider>
   );
 }
 
