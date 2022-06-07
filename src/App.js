@@ -67,9 +67,7 @@ function App() {
             item.flight.legs[1].segments.length ===
             3 || 2
       );
-    } else {
-      arr = temp;
-    }
+    } 
 
     arr = arr.filter(
       (item) =>
@@ -78,6 +76,7 @@ function App() {
     );
 
     setTickets(arr);
+    
   }, [sort, company, priceFrom, priceTo, filter]);
 
   return (
