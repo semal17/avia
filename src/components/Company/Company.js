@@ -1,17 +1,20 @@
 import "./Company.css";
 
-function Company({ company, setCompany }) {
-  let changeCompany = (e) => {
-    if (e.target.id === "lot" && e.target.checked) {
-      setCompany(company + 1);
-    } else if (e.target.id === "aer" && e.target.checked) {
-      setCompany(company + 2);
-    } else if (e.target.id === "lot" && e.target.checked === false) {
-      setCompany(company - 1);
-    } else if (e.target.id === "aer" && e.target.checked === false) {
-      setCompany(company - 2);
+function Company({ companies, setCompanies }) {
+  function handleChange (event) {
+    let copy = [...companies]
+    const value = event.target.value
+
+    if (companies.includes(value)) {
+      const result = copy.filter(item => item !== value)
+
+      setCompanies(result)
+    } else {
+      copy.push(value)
+
+      setCompanies(copy)
     }
-  };
+  }
 
   return (
     <div className="company">
@@ -24,8 +27,9 @@ function Company({ company, setCompany }) {
               type="checkbox"
               id="lot"
               name="company"
-              value="lot"
-              onChange={changeCompany}
+              value="LO"
+              onChange={handleChange}
+              checked={companies.includes('LO')}
             />
             - Lot Polish Airlines от 21049 р.
           </label>
@@ -35,8 +39,9 @@ function Company({ company, setCompany }) {
               type="checkbox"
               id="aer"
               name="company"
-              value="aer"
-              onChange={changeCompany}
+              value="SU1"
+              onChange={handleChange}
+              checked={companies.includes('SU1')}
             />
             - Аэрофлот - рос. авиалинии от 31733 р.
           </label>

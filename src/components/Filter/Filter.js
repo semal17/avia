@@ -1,17 +1,20 @@
 import "./Filter.css";
 
-function Filter({ filter, setFilter }) {
-  let changeInput = (e) => {
-    if (e.target.defaultValue === "1" && e.target.checked) {
-      setFilter(filter + 1);
-    } else if (e.target.defaultValue === "0" && e.target.checked) {
-      setFilter(filter + 2);
-    } else if (e.target.defaultValue === "1" && e.target.checked === false) {
-      setFilter(filter - 1);
-    } else if (e.target.defaultValue === "0" && e.target.checked === false) {
-      setFilter(filter - 2);
+function Filter({ segments, setSegments }) {
+  function handleChange (event) {
+    let copy = [...segments]
+    const value = event.target.value
+
+    if (segments.includes(value)) {
+      const result = copy.filter(item => item !== value)
+
+      setSegments(result)
+    } else {
+      copy.push(value)
+
+      setSegments(copy)
     }
-  };
+  }
 
   return (
     <div className="filter">
@@ -24,8 +27,9 @@ function Filter({ filter, setFilter }) {
               type="checkbox"
               id="single"
               name="filter"
-              value="1"
-              onChange={changeInput}
+              value="one"
+              onChange={handleChange}
+              checked={segments.includes('one')}
             />
             - 1 пересадка
           </label>
@@ -35,8 +39,9 @@ function Filter({ filter, setFilter }) {
               type="checkbox"
               id="without"
               name="filter"
-              value="0"
-              onChange={changeInput}
+              value="none"
+              onChange={handleChange}
+              checked={segments.includes('none')}
             />
             - без пересадок
           </label>

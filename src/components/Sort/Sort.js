@@ -1,22 +1,24 @@
 import "./Sort.css";
 
 function Sort({ sort, setSort }) {
-  let formChange = (e) => {
-    setSort(e.target.closest("label").htmlFor);
-  };
+  function handleChange (event) {
+    setSort(event.target.value)
+  }
 
   return (
     <div className="sort">
       <form className="sort-form">
         <p className="sort-form__name">Сортировать</p>
-        <div className="sort-form__wrapper" onClick={formChange}>
+        <div className="sort-form__wrapper">
           <label className="sort-form__label" htmlFor="priceUp">
             <input
               className="sort-form__input"
               type="radio"
               id="priceUp"
               name="sort"
-              value="up"
+              value="price-asc"
+              onChange={handleChange}
+              checked={sort === 'price-asc'}
             />
             - по возрастанию цены
           </label>
@@ -26,7 +28,9 @@ function Sort({ sort, setSort }) {
               type="radio"
               id="priceDown"
               name="sort"
-              value="down"
+              value="price-desc"
+              onChange={handleChange}
+              checked={sort === 'price-desc'}
             />
             - по убыванию цены
           </label>
@@ -37,6 +41,8 @@ function Sort({ sort, setSort }) {
               id="time"
               name="sort"
               value="time"
+              onChange={handleChange}
+              checked={sort === 'time'}
             />
             - по времени в пути
           </label>

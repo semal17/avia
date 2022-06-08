@@ -1,4 +1,5 @@
 import { DATA } from "./flights.js";
+import {sortByField, sortByCompany, sortBySegments, sortByPrice} from "./utils/filters";
 import React, { useEffect, useState } from "react";
 import "./App.css";
 
@@ -8,76 +9,24 @@ import Tickets from "./components/Tickets/Tickets";
 export const MyContext = React.createContext();
 
 function App() {
-  const [sort, setSort] = useState("");
+  const [sort, setSort] = useState("price-asc");
   const [count, setCount] = useState(2);
-  const [filter, setFilter] = useState(0);
-  const [company, setCompany] = useState(0);
+  const [segments, setSegments] = useState([]);
+  const [companies, setCompanies] = useState([]);
   const [priceFrom, setPriceFrom] = useState(0);
   const [priceTo, setPriceTo] = useState(1000000);
   const [tickets, setTickets] = useState(DATA[0].result.flights);
 
   useEffect(() => {
-    let temp = [...DATA[0].result.flights];
-    let arr = [];
-    if (sort === "priceUp") {
-      arr = temp.sort(
-        (a, b) =>
-          Number(a.flight.price.total.amount) -
-          Number(b.flight.price.total.amount)
-      );
-    } else if (sort === "priceDown") {
-      arr = temp.sort(
-        (a, b) =>
-          Number(b.flight.price.total.amount) -
-          Number(a.flight.price.total.amount)
-      );
-    } else if (sort === "time") {
-      arr = temp.sort(
-        (a, b) =>
-          Number(a.flight.legs[0].duration + a.flight.legs[1].duration) -
-          Number(b.flight.legs[0].duration + b.flight.legs[1].duration)
-      );
-    } else {
-      arr = temp;
-    }
-    
+    let arr;
 
-    if (company === 1) {
-      arr = temp.filter((item) => item.flight.carrier.uid === "LO");
-    } else if (company === 2) {
-      arr = temp.filter((item) => item.flight.carrier.uid === "SU1");
-    } else if (company === 3) {
-      arr = temp.filter(
-        (item) =>
-          item.flight.carrier.uid === "SU1" || item.flight.carrier.uid === "LO"
-      );
-    }
-
-    if (filter === 1) {
-      arr = arr.filter(
-        (item) =>
-          item.flight.legs[0].segments.length +
-            item.flight.legs[1].segments.length ===
-          4
-      );
-    } else if (filter === 2) {
-      arr = arr.filter(
-        (item) =>
-          item.flight.legs[0].segments.length +
-            item.flight.legs[1].segments.length ===
-            3 || 2
-      );
-    } 
-
-    arr = arr.filter(
-      (item) =>
-        Number(item.flight.price.total.amount) >= priceFrom &&
-        Number(item.flight.price.total.amount) <= priceTo
-    );
+    arr = sortByField(DATA[0].result.flights, sort)
+    arr = sortByCompany(arr, companies)
+    arr = sortBySegments(arr, segments)
+    arr = sortByPrice(arr, priceFrom, priceTo)
 
     setTickets(arr);
-    
-  }, [sort, company, priceFrom, priceTo, filter]);
+  }, [sort, companies, priceFrom, priceTo, segments]);
 
   return (
     <MyContext.Provider value={{ count, setCount }}>
@@ -85,14 +34,14 @@ function App() {
         <StatusFilter
           sort={sort}
           setSort={setSort}
-          filter={filter}
-          setFilter={setFilter}
+          segments={segments}
+          setSegments={setSegments}
           priceFrom={priceFrom}
           setPriceFrom={setPriceFrom}
           priceTo={priceTo}
           setPriceTo={setPriceTo}
-          company={company}
-          setCompany={setCompany}
+          companies={companies}
+          setCompanies={setCompanies}
         />
         <Tickets tickets={tickets} />
       </main>

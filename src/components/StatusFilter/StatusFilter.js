@@ -7,26 +7,26 @@ import Company from "../Company/Company";
 function StatusFilter({
   sort,
   setSort,
-  filter,
-  setFilter,
+  segments,
+  setSegments,
   priceFrom,
   setPriceFrom,
   priceTo,
   setPriceTo,
-  company,
-  setCompany,
+  companies,
+  setCompanies,
 }) {
   return (
     <section className="status">
       <Sort sort={sort} setSort={setSort} />
-      <Filter filter={filter} setFilter={setFilter} />
+      <Filter segments={segments} setSegments={setSegments} />
       <Price
         priceFrom={priceFrom}
         setPriceFrom={setPriceFrom}
         priceTo={priceTo}
         setPriceTo={setPriceTo}
       />
-      <Company company={company} setCompany={setCompany} />
+      <Company companies={companies} setCompanies={setCompanies} />
     </section>
   );
 }
