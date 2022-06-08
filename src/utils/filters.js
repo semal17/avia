@@ -1,10 +1,11 @@
+
 /**
  * Сортировка по полям (цена по возрастанию, цена по убыванию, по времени в пути)
  * @param arr – массив, который нужно отфильтровать
  * @param sort {'price-asc'|'price-desc'|'time'} – название сортировки
  * @returns {*[]}
  */
-export function sortByField (arr, sort) {
+ export function sortByField (arr, sort) {
   const copy = [...arr]
 
   switch (sort) {

@@ -1,8 +1,8 @@
 import "./Sort.css";
 
 function Sort({ sort, setSort }) {
-  function handleChange (event) {
-    setSort(event.target.value)
+  function handleChange(event) {
+    setSort(event.target.value);
   }
 
   return (
@@ -18,7 +18,7 @@ function Sort({ sort, setSort }) {
               name="sort"
               value="price-asc"
               onChange={handleChange}
-              checked={sort === 'price-asc'}
+              checked={sort === "price-asc"}
             />
             - по возрастанию цены
           </label>
@@ -30,7 +30,7 @@ function Sort({ sort, setSort }) {
               name="sort"
               value="price-desc"
               onChange={handleChange}
-              checked={sort === 'price-desc'}
+              checked={sort === "price-desc"}
             />
             - по убыванию цены
           </label>
@@ -42,7 +42,7 @@ function Sort({ sort, setSort }) {
               name="sort"
               value="time"
               onChange={handleChange}
-              checked={sort === 'time'}
+              checked={sort === "time"}
             />
             - по времени в пути
           </label>

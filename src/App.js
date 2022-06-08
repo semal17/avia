@@ -1,3 +1,4 @@
+
 import { DATA } from "./flights.js";
 import {sortByField, sortByCompany, sortBySegments, sortByPrice} from "./utils/filters";
 import React, { useEffect, useState } from "react";
