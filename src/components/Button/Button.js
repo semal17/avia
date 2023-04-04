@@ -8,7 +8,7 @@ function Button() {
   const { count, setCount } = useContext(MyContext);
   return (
     <div className="button" type="button" onClick={() => setCount(count + 2)}>
-      Показать ещё
+      Показать ещe
     </div>
   );
 }
